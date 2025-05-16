@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         // Logic to retrieve and display all posts
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         return view('posts.index', compact('posts'));
     
     }
@@ -35,13 +35,23 @@ class PostController extends Controller
     {
         // Logic to display a single post
     }
-    public function edit($id)
+    public function edit(Post $post)
     {
         // Logic to show the form for editing a post
+        $users = User::all();
+        return view('posts.edit', compact('post', 'users'));
     }
     public function update(Request $request, $id)
     {
         // Logic to update a post
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'content' => 'required|string'
+        ]);
+
+        Post::find($id)->update($data);
+        return redirect('/')->with('success', 'Post updated successfully.');
+
     }
     public function destroy($id)
     {

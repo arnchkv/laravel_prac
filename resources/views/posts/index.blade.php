@@ -14,7 +14,7 @@
                 <p>{{ $post->content }}</p>
                 <p>Author: {{ $post->user->name }}</p>
                 <p>Published on: {{ $post->created_at->format('Y-m-d') }}</p>
-                <a href="{{ url('/posts/'.$post->id) }}">Update</a>
+                <a href="{{ url('/posts/'.$post->id.'/edit') }}">Edit</a>
                 <form action="{{ url('/posts/'.$post->id) }}" method="post">
                     @method('DELETE')
 
