@@ -16,6 +16,7 @@
                 <p>Published on: {{ $post->created_at->format('Y-m-d') }}</p>
                 <a href="{{ url('/posts/'.$post->id.'/edit') }}">Edit</a>
                 <form action="{{ url('/posts/'.$post->id) }}" method="post">
+                    @csrf
                     @method('DELETE')
 
                     <button type="submit">Delete</button>
