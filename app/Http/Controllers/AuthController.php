@@ -14,14 +14,14 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ])->validate();
-
         if (auth()->attempt($request->only('email', 'password'))) {
-            return redirect()->intended('/')->with('success', 'Login successful');
+            // dd($request->all());
+            return redirect()->intended('/posts')->with('success', 'Login successful');
         }
-        return redirect()->back()->with('error', 'Login failed');
+        return redirect('/')->with('error', 'Login failed');
     }
     public function logout(){
         auth()->logout();
-        return redirect('/login')->with('success', 'Logout successful');
+        return redirect('/')->with('success', 'Logout successful');
     }
 }
