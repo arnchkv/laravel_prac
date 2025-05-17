@@ -8,6 +8,11 @@
 </head>
 
 <body>
+    <form action="{{ url('logout') }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Logout</button>
+    </form>
     <ul>
         @foreach ($posts as $post)
             <li>
