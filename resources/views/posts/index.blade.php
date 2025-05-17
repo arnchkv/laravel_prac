@@ -13,6 +13,9 @@
         @method('DELETE')
         <button type="submit">Logout</button>
     </form>
+    <form action="{{ url(route('posts.create')) }}" method="get">
+        <button type="submit">Create</button>
+    </form>
     <ul>
         @foreach ($posts as $post)
             <li>
