@@ -20,6 +20,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
 
-Route::get('/',[AuthController::class, 'loginPage'])->name('loginPage');
+// login page should allways be named as 'login'
+Route::get('/',[AuthController::class, 'loginPage'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
