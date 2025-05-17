@@ -50,13 +50,13 @@ class PostController extends Controller
         ]);
 
         Post::find($id)->update($data);
-        return redirect('/')->with('success', 'Post updated successfully.');
+        return redirect('/posts')->with('success', 'Post updated successfully.');
 
     }
     public function destroy($id)
     {
         // Logic to delete a post
         Post::destroy($id);
-        return redirect('/')->with('success', 'Post deleted successfully.');
+        return redirect('/posts')->with('success', 'Post deleted successfully.');
     }
 }
