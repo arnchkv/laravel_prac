@@ -19,6 +19,7 @@ type Query {
     ): [User!]! @paginate(defaultCount: 10)
 
     posts: [Post!]! @paginate
+    post(id: ID @eq): Post @find
 }
 
 "Account of a person who utilizes this application."
@@ -40,6 +41,8 @@ type User {
 
     "When the account was last updated."
     updated_at: DateTime!
+
+    posts: [Post]! @hasMany
 }
 
 type Post {
