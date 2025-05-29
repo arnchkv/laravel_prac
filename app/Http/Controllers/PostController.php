@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         // Logic to retrieve and display all posts
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
         return view('posts.index', compact('posts'));
     
     }
