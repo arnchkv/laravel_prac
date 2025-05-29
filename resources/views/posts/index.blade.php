@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends("layouts.app")
+@section("title", "Posts")
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
-    <title>Posts</title>
-</head>
-
-<body class="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+@section("content")
     <div class="w-full max-w-2xl mx-auto mt-8">
         <div class="flex justify-end gap-2 mb-6">
             <form action="{{ url('logout') }}" method="POST">
@@ -29,7 +22,8 @@
                 <li class="bg-white rounded-lg shadow p-6">
                     <p class="text-gray-800 text-lg mb-2">{{ $post->content }}</p>
                     <div class="flex items-center text-sm text-gray-500 mb-4">
-                        <span class="mr-4">Author: <span class="font-semibold text-gray-700">{{ $post->user->name }}</span></span>
+                        <span class="mr-4">Author: <span
+                                class="font-semibold text-gray-700">{{ $post->user->name }}</span></span>
                         <span>Published: {{ $post->created_at->format('Y-m-d') }}</span>
                     </div>
                     <div class="flex gap-2">
@@ -46,6 +40,4 @@
             @endforeach
         </ul>
     </div>
-</body>
-
-</html>
+@endsection
