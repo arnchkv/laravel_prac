@@ -39,6 +39,8 @@
                 </li>
             @endforeach
         </ul>
+        <div class="flex items-center">
+            {{ $posts->links() }}
+        </div>
     </div>
-    {{ $posts->links() }}
 @endsection
